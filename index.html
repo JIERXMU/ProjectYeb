@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectYeb - 挂机养成游戏</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components/ui.css">
+    <link rel="stylesheet" href="css/components/dialogue.css">
+    <link rel="stylesheet" href="css/components/themes.css">
+    <link rel="stylesheet" href="css/components/furniture.css">
+    <link rel="stylesheet" href="css/components/shop.css">
+    <link rel="stylesheet" href="css/components/interaction.css">
+    <link rel="stylesheet" href="css/components/career.css">
+</head>
+<body>
+    <!-- 游戏主容器 -->
+    <div id="game-container" class="game-container">
+        <!-- 信息区 -->
+        <div id="info-panel" class="info-panel">
+            <div class="time-display hidden">
+                <span id="old-current-time">00:00</span>
+                <span id="old-time-period">🌅 早晨</span>
+            </div>
+            <div class="stats">
+                <!-- 时间显示 -->
+                <div class="stat-item time-stat">
+                    <div class="time-content">
+                        <div class="time-label">🕒 时间</div>
+                        <div id="current-time" class="time-value">00:00</div>
+                        <div id="time-period" class="time-period">🌅 早晨</div>
+                    </div>
+                </div>
+                
+                <!-- 等级和专注力 -->
+                <div class="stat-item level-focus-stat">
+                    <div class="stat-header">
+                        <span class="stat-label">🎯 等级</span>
+                        <span id="level-display" class="stat-value">1</span>
+                    </div>
+                    <div class="progress-bars">
+                        <!-- 经验进度条 -->
+                        <div class="progress-item">
+                            <div class="progress-bar">
+                                <div id="level-progress" class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="progress-info">
+                                <span class="progress-label">经验</span>
+                                <span id="level-exp" class="progress-value">0/100</span>
+                                <span id="exp-rate-display" class="progress-rate">0</span>
+                            </div>
+                        </div>
+                        <!-- 专注力进度条 -->
+                        <div class="progress-item">
+                            <div class="progress-bar">
+                                <div id="focus-progress" class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <div class="progress-info">
+                                <span class="progress-label">专注</span>
+                                <span id="focus-display" class="progress-value">100/100</span>
+                                <span id="focus-rate-display" class="progress-rate">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 心情 -->
+                <div class="stat-item mood-stat">
+                    <div class="stat-header">
+                        <span class="stat-label">❤️ 心情</span>
+                        <span id="mood-display" class="stat-value">40</span>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-bar">
+                            <div id="mood-progress" class="progress-fill" style="width: 40%"></div>
+                        </div>
+                        <div class="progress-info">
+                            <span id="mood-status" class="progress-value">40/100</span>
+                            <span id="mood-status-text" class="progress-label">😐 不开心</span>
+                            <span id="mood-rate-display" class="progress-rate">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 金币 -->
+                <div class="stat-item coin-stat">
+                    <div class="stat-header">
+                        <span class="stat-label">💰 金币</span>
+                        <span id="coins-display" class="stat-value">0</span>
+                    </div>
+                    <div class="coin-animation">
+                        <span class="coin-icon">🪙</span>
+                    </div>
+                    <div class="stat-detail">
+                        <span id="coin-rate-display" class="rate-display">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 核心区 -->
+        <div id="core-area" class="core-area">
+            <!-- 通知区域 -->
+            <div id="notification-area" class="notification-area"></div>
+            
+            <!-- 房间窗口 -->
+            <div id="room-container" class="room-container">
+                <!-- 家具放置区域 -->
+                <div id="furniture-area" class="furniture-area"></div>
+                
+                <!-- Yui状态展示窗口 -->
+                <div id="yui-status-window" class="yui-status-window">
+                    <div class="status-header">
+                        <span class="status-title">Yui当前状态</span>
+                    </div>
+                    <div class="status-content">
+                        <div class="status-emoji" id="yui-status-emoji">😐</div>
+                        <div class="status-text" id="current-behavior">发呆中...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 对话窗口 (默认隐藏) -->
+            <div id="dialogue-container" class="dialogue-container hidden">
+                <div id="dialogue-content" class="dialogue-content">
+                    <div id="dialogue-text" class="dialogue-text"></div>
+                    <div id="dialogue-options" class="dialogue-options"></div>
+                    <div id="dialogue-hint" class="dialogue-hint hidden">点击对话框外区域结束对话</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 操作区 -->
+        <div id="action-panel" class="action-panel">
+            <div class="action-row">
+                <button id="talk-btn" class="action-btn">对话</button>
+                <button id="gift-btn" class="action-btn">礼物</button>
+                <button id="wardrobe-btn" class="action-btn">衣柜</button>
+            </div>
+            <div class="action-row">
+                <button id="house-btn" class="action-btn">房屋</button>
+                <button id="shop-btn" class="action-btn">商城</button>
+                <button id="music-btn" class="action-btn">音乐</button>
+            </div>
+        </div>
+
+        <!-- 打工状态显示区域 -->
+        <div id="career-status-display" class="career-status-display"></div>
+
+        <!-- 调试面板 (默认隐藏) -->
+        <div id="debug-panel" class="debug-panel hidden">
+            <h3>调试面板</h3>
+            <div class="debug-section">
+                <label>游戏时间:</label>
+                <input type="number" id="debug-hour" value="0" min="0" max="23" placeholder="时">
+                <input type="number" id="debug-minute" value="0" min="0" max="59" placeholder="分">
+            </div>
+            <div class="debug-section">
+                <label>挂机倍率:</label>
+                <input type="number" id="idle-multiplier" value="1" min="0.1" step="0.1">
+            </div>
+            <div class="debug-section">
+                <label>心情值:</label>
+                <input type="number" id="debug-mood" value="40" min="0" max="100">
+            </div>
+            <div class="debug-section">
+                <label>经验值:</label>
+                <input type="number" id="debug-exp" value="0" min="0">
+            </div>
+            <div class="debug-section">
+                <label>金币:</label>
+                <input type="number" id="debug-coins" value="0" min="0">
+            </div>
+            <div class="debug-section">
+                <button id="apply-debug" class="debug-btn">应用修改</button>
+                <button id="next-behavior" class="debug-btn">下一行为</button>
+                <button id="close-debug" class="debug-btn">退出</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载JavaScript文件 -->
+    <script src="js/config/gameData.js"></script>
+    <script src="js/config/gameTexts.js"></script>
+    <script src="js/config/dialogues.js"></script>
+    <script src="js/systems/timeSystem.js"></script>
+    <script src="js/systems/idleSystem.js"></script>
+    <script src="js/systems/levelSystem.js"></script>
+    <script src="js/systems/moodSystem.js"></script>
+    <script src="js/systems/behaviorSystem.js"></script>
+    <script src="js/systems/dialogueSystem.js"></script>
+    <script src="js/systems/furnitureSystem.js"></script>
+    <script src="js/systems/shopSystem.js"></script>
+    <script src="js/systems/interactionSystem.js"></script>
+    <script src="js/systems/careerSystem.js"></script>
+    <script src="js/systems/eventSystem.js"></script>
+    <script src="js/ui/debugPanel.js"></script>
+    <script src="js/ui/notification.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

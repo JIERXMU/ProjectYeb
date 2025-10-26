@@ -1,0 +1,506 @@
+/* 商店系统样式 */
+
+/* 商店容器 */
+.shop-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2a2a2a;
+    border: 3px solid #666;
+    border-radius: 8px;
+    padding: 0;
+    z-index: 1001;
+    min-width: 500px;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 商店头部 */
+.shop-header {
+    background-color: #333;
+    border-bottom: 2px solid #555;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.close-shop {
+    background: none;
+    border: none;
+    color: #bbb;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.close-shop:hover {
+    background-color: #444;
+    color: #fff;
+}
+
+/* 商店标签页 */
+.shop-tabs {
+    background-color: #333;
+    border-bottom: 1px solid #555;
+    display: flex;
+    padding: 0 20px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: #bbb;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 0.95em;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn:hover {
+    color: #fff;
+    background-color: #444;
+}
+
+.tab-btn.active {
+    color: #fff;
+    border-bottom-color: #4CAF50;
+    background-color: #444;
+}
+
+/* 商店内容区域 */
+.shop-content {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 商店商品 */
+.shop-item {
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.shop-item:hover {
+    background-color: #3a3a3a;
+    border-color: #666;
+}
+
+.shop-item-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.shop-item-icon {
+    font-size: 2.2em;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    min-width: 50px;
+    text-align: center;
+}
+
+.shop-item-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.shop-item-name {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 6px;
+    font-size: 1.1em;
+}
+
+.shop-item-price {
+    color: #ffd700;
+    font-size: 0.95em;
+    margin-bottom: 4px;
+}
+
+.shop-item-description {
+    color: #bbb;
+    font-size: 0.85em;
+    margin-bottom: 4px;
+    line-height: 1.4;
+}
+
+.shop-item-effects {
+    color: #4CAF50;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+/* 购买按钮 */
+.buy-btn {
+    background-color: #4CAF50;
+    border: 1px solid #66bb6a;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    min-width: 80px;
+    text-align: center;
+}
+
+.buy-btn:hover {
+    background-color: #66bb6a;
+    border-color: #81c784;
+    transform: translateY(-1px);
+}
+
+.buy-btn:active {
+    transform: translateY(0);
+}
+
+.buy-btn.disabled {
+    background-color: #666;
+    border-color: #777;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.buy-btn.owned {
+    background-color: #2196F3;
+    border-color: #42a5f5;
+    cursor: default;
+}
+
+.buy-btn.owned:hover {
+    background-color: #2196F3;
+    border-color: #42a5f5;
+    transform: none;
+}
+
+/* 商店底部 */
+.shop-footer {
+    background-color: #333;
+    border-top: 1px solid #555;
+    padding: 12px 20px;
+    text-align: center;
+}
+
+.player-coins {
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* 无商品提示 */
+.no-items {
+    text-align: center;
+    color: #999;
+    padding: 40px 20px;
+    font-style: italic;
+}
+
+/* 背包系统样式 */
+.backpack-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2a2a2a;
+    border: 3px solid #666;
+    border-radius: 8px;
+    padding: 0;
+    z-index: 1001;
+    min-width: 500px;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow: hidden;
+}
+
+.backpack-header {
+    background-color: #333;
+    border-bottom: 2px solid #555;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.backpack-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.backpack-tabs {
+    background-color: #333;
+    border-bottom: 1px solid #555;
+    display: flex;
+    padding: 0 20px;
+}
+
+.backpack-content {
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* 背包物品 */
+.backpack-item {
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.backpack-item:hover {
+    background-color: #3a3a3a;
+    border-color: #666;
+}
+
+.backpack-item.placed {
+    border-color: #4CAF50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+.backpack-item-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.backpack-item-icon {
+    font-size: 2.2em;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    min-width: 50px;
+    text-align: center;
+}
+
+.backpack-item-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.backpack-item-name {
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 6px;
+    font-size: 1.1em;
+}
+
+.backpack-item-category {
+    color: #bbb;
+    font-size: 0.85em;
+    margin-bottom: 4px;
+}
+
+.backpack-item-effects {
+    color: #4CAF50;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+/* 放置/使用按钮 */
+.place-btn, .use-btn, .gift-btn {
+    background-color: #2196F3;
+    border: 1px solid #42a5f5;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    min-width: 80px;
+    text-align: center;
+}
+
+.place-btn:hover, .use-btn:hover, .gift-btn:hover {
+    background-color: #42a5f5;
+    border-color: #64b5f6;
+    transform: translateY(-1px);
+}
+
+.place-btn:active, .use-btn:active, .gift-btn:active {
+    transform: translateY(0);
+}
+
+.place-btn:disabled, .use-btn:disabled, .gift-btn:disabled {
+    background-color: #666;
+    border-color: #777;
+    color: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.use-btn {
+    background-color: #4CAF50;
+    border-color: #66bb6a;
+}
+
+.use-btn:hover {
+    background-color: #66bb6a;
+    border-color: #81c784;
+}
+
+.gift-btn {
+    background-color: #9c27b0;
+    border-color: #ab47bc;
+}
+
+.gift-btn:hover {
+    background-color: #ab47bc;
+    border-color: #ba68c8;
+}
+
+/* 滚动条样式 */
+.shop-content::-webkit-scrollbar,
+.backpack-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.shop-content::-webkit-scrollbar-track,
+.backpack-content::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 4px;
+}
+
+.shop-content::-webkit-scrollbar-thumb,
+.backpack-content::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+.shop-content::-webkit-scrollbar-thumb:hover,
+.backpack-content::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .shop-container,
+    .backpack-container {
+        min-width: 320px;
+        max-width: 90vw;
+        margin: 20px;
+    }
+    
+    .shop-header,
+    .backpack-header {
+        padding: 12px 15px;
+    }
+    
+    .shop-tabs,
+    .backpack-tabs {
+        padding: 0 15px;
+    }
+    
+    .tab-btn {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    
+    .shop-content,
+    .backpack-content {
+        padding: 15px;
+        max-height: 300px;
+    }
+    
+    .shop-item,
+    .backpack-item {
+        padding: 12px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .shop-item-info,
+    .backpack-item-info {
+        gap: 12px;
+    }
+    
+    .shop-item-icon,
+    .backpack-item-icon {
+        font-size: 1.8em;
+        min-width: 40px;
+    }
+    
+    .buy-btn,
+    .place-btn,
+    .use-btn,
+    .gift-btn {
+        align-self: flex-end;
+        min-width: 70px;
+    }
+}
+
+/* 动画效果 */
+@keyframes shop-item-appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.shop-item,
+.backpack-item {
+    animation: shop-item-appear 0.3s ease-out;
+}
+
+/* 购买成功动画 */
+@keyframes purchase-success {
+    0% {
+        background-color: #4CAF50;
+    }
+    50% {
+        background-color: #66bb6a;
+    }
+    100% {
+        background-color: #333;
+    }
+}
+
+.shop-item.purchased {
+    animation: purchase-success 0.6s ease-in-out;
+}

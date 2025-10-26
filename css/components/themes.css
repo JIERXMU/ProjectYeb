@@ -1,0 +1,249 @@
+/* 时间主题系统 */
+/* 早晨主题 (6:00-10:59) */
+.theme-morning {
+    background: linear-gradient(135deg, #87CEEB 0%, #E6F3FF 100%);
+}
+
+.theme-morning .info-panel {
+    background-color: rgba(135, 206, 235, 0.9);
+    border-bottom-color: #5F9EA0;
+}
+
+.theme-morning .core-area {
+    background: linear-gradient(135deg, #B0E2FF 0%, #E6F3FF 100%);
+}
+
+.theme-morning .room-container {
+    background-color: rgba(176, 226, 255, 0.8);
+    border-color: #87CEEB;
+}
+
+.theme-morning .action-panel {
+    background-color: rgba(135, 206, 235, 0.9);
+    border-top-color: #5F9EA0;
+}
+
+.theme-morning .stat-value {
+    color: #2F4F4F;
+}
+
+/* 中午主题 (11:00-13:59) */
+.theme-noon {
+    background: linear-gradient(135deg, #FFD700 0%, #FFF8DC 100%);
+}
+
+.theme-noon .info-panel {
+    background-color: rgba(255, 215, 0, 0.9);
+    border-bottom-color: #DAA520;
+}
+
+.theme-noon .core-area {
+    background: linear-gradient(135deg, #FFEC8B 0%, #FFF8DC 100%);
+}
+
+.theme-noon .room-container {
+    background-color: rgba(255, 236, 139, 0.8);
+    border-color: #FFD700;
+}
+
+.theme-noon .action-panel {
+    background-color: rgba(255, 215, 0, 0.9);
+    border-top-color: #DAA520;
+}
+
+.theme-noon .stat-value {
+    color: #8B4513;
+}
+
+/* 下午主题 (14:00-17:59) */
+.theme-afternoon {
+    background: linear-gradient(135deg, #FFA500 0%, #FFE4B5 100%);
+}
+
+.theme-afternoon .info-panel {
+    background-color: rgba(255, 165, 0, 0.9);
+    border-bottom-color: #CD853F;
+}
+
+.theme-afternoon .core-area {
+    background: linear-gradient(135deg, #FFD39B 0%, #FFE4B5 100%);
+}
+
+.theme-afternoon .room-container {
+    background-color: rgba(255, 211, 155, 0.8);
+    border-color: #FFA500;
+}
+
+.theme-afternoon .action-panel {
+    background-color: rgba(255, 165, 0, 0.9);
+    border-top-color: #CD853F;
+}
+
+.theme-afternoon .stat-value {
+    color: #8B4513;
+}
+
+/* 晚上主题 (18:00-21:59) */
+.theme-evening {
+    background: linear-gradient(135deg, #4B0082 0%, #8A2BE2 100%);
+}
+
+.theme-evening .info-panel {
+    background-color: rgba(75, 0, 130, 0.9);
+    border-bottom-color: #483D8B;
+}
+
+.theme-evening .core-area {
+    background: linear-gradient(135deg, #6A5ACD 0%, #9370DB 100%);
+}
+
+.theme-evening .room-container {
+    background-color: rgba(106, 90, 205, 0.8);
+    border-color: #4B0082;
+}
+
+.theme-evening .action-panel {
+    background-color: rgba(75, 0, 130, 0.9);
+    border-top-color: #483D8B;
+}
+
+.theme-evening .stat-value {
+    color: #E6E6FA;
+}
+
+/* 凌晨主题 (22:00-5:59) */
+.theme-midnight {
+    background: linear-gradient(135deg, #191970 0%, #000080 100%);
+}
+
+.theme-midnight .info-panel {
+    background-color: rgba(25, 25, 112, 0.9);
+    border-bottom-color: #000080;
+}
+
+.theme-midnight .core-area {
+    background: linear-gradient(135deg, #000080 0%, #191970 100%);
+}
+
+.theme-midnight .room-container {
+    background-color: rgba(0, 0, 128, 0.8);
+    border-color: #191970;
+}
+
+.theme-midnight .action-panel {
+    background-color: rgba(25, 25, 112, 0.9);
+    border-top-color: #000080;
+}
+
+.theme-midnight .stat-value {
+    color: #B0C4DE;
+}
+
+/* 时间段文字颜色 */
+.theme-morning #time-period { color: #2F4F4F; }
+.theme-noon #time-period { color: #8B4513; }
+.theme-afternoon #time-period { color: #8B4513; }
+.theme-evening #time-period { color: #E6E6FA; }
+.theme-midnight #time-period { color: #B0C4DE; }
+
+/* 按钮在不同主题下的样式 */
+.theme-morning .action-btn {
+    background-color: rgba(135, 206, 235, 0.7);
+    border-color: #5F9EA0;
+    color: #2F4F4F;
+}
+
+.theme-noon .action-btn {
+    background-color: rgba(255, 215, 0, 0.7);
+    border-color: #DAA520;
+    color: #8B4513;
+}
+
+.theme-afternoon .action-btn {
+    background-color: rgba(255, 165, 0, 0.7);
+    border-color: #CD853F;
+    color: #8B4513;
+}
+
+.theme-evening .action-btn {
+    background-color: rgba(75, 0, 130, 0.7);
+    border-color: #483D8B;
+    color: #E6E6FA;
+}
+
+.theme-midnight .action-btn {
+    background-color: rgba(25, 25, 112, 0.7);
+    border-color: #000080;
+    color: #B0C4DE;
+}
+
+/* 调试面板在不同主题下的样式 */
+.theme-morning .debug-panel {
+    background-color: rgba(176, 226, 255, 0.95);
+    border-color: #87CEEB;
+    color: #2F4F4F;
+}
+
+.theme-noon .debug-panel {
+    background-color: rgba(255, 236, 139, 0.95);
+    border-color: #FFD700;
+    color: #8B4513;
+}
+
+.theme-afternoon .debug-panel {
+    background-color: rgba(255, 211, 155, 0.95);
+    border-color: #FFA500;
+    color: #8B4513;
+}
+
+.theme-evening .debug-panel {
+    background-color: rgba(106, 90, 205, 0.95);
+    border-color: #4B0082;
+    color: #E6E6FA;
+}
+
+.theme-midnight .debug-panel {
+    background-color: rgba(0, 0, 128, 0.95);
+    border-color: #191970;
+    color: #B0C4DE;
+}
+
+/* 对话窗口在不同主题下的样式 */
+.theme-morning .dialogue-container {
+    background-color: rgba(176, 226, 255, 0.95);
+    border-color: #87CEEB;
+    color: #2F4F4F;
+}
+
+.theme-noon .dialogue-container {
+    background-color: rgba(255, 236, 139, 0.95);
+    border-color: #FFD700;
+    color: #8B4513;
+}
+
+.theme-afternoon .dialogue-container {
+    background-color: rgba(255, 211, 155, 0.95);
+    border-color: #FFA500;
+    color: #8B4513;
+}
+
+.theme-evening .dialogue-container {
+    background-color: rgba(106, 90, 205, 0.95);
+    border-color: #4B0082;
+    color: #E6E6FA;
+}
+
+.theme-midnight .dialogue-container {
+    background-color: rgba(0, 0, 128, 0.95);
+    border-color: #191970;
+    color: #B0C4DE;
+}
+
+/* 过渡动画 */
+.game-container {
+    transition: background 0.5s ease;
+}
+
+.info-panel, .core-area, .action-panel {
+    transition: all 0.5s ease;
+}

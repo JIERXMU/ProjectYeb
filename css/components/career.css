@@ -1,0 +1,565 @@
+/* 打工系统样式 */
+
+/* 打工状态显示区域 */
+.career-status-display {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* 状态显示 */
+.career-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid;
+    animation: status-pulse 2s infinite;
+}
+
+/* 休息状态样式 */
+.rest-status {
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+    border-color: #388E3C;
+    color: white;
+}
+
+/* 打工状态样式 */
+.work-status {
+    background: linear-gradient(135deg, #FF9800, #FFC107);
+    border-color: #F57C00;
+    color: white;
+}
+
+/* 状态图标 */
+.status-icon {
+    font-size: 16px;
+    animation: icon-bounce 1s infinite;
+}
+
+/* 状态文字 */
+.status-text {
+    font-weight: bold;
+}
+
+/* 窗口状态 */
+.window-status {
+    font-size: 12px;
+    opacity: 0.9;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+/* 动画效果 */
+@keyframes status-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@keyframes icon-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .career-status-display {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .career-status {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+    
+    .status-icon {
+        font-size: 14px;
+    }
+    
+    .window-status {
+        font-size: 10px;
+    }
+}
+
+/* 专注力显示样式 */
+#focus-display {
+    font-size: 12px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* 职业信息显示 */
+.career-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.job-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.job-level {
+    background: #4CAF50;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* 专注力进度条 */
+#focus-progress {
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    transition: width 0.5s ease;
+}
+
+/* 低专注力警告 */
+#focus-display[style*="color: #ff4444"] {
+    animation: low-focus-warning 1s infinite;
+}
+
+@keyframes low-focus-warning {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* 职业升级特效 */
+.career-level-up {
+    animation: level-up-celebration 2s ease-out;
+}
+
+@keyframes level-up-celebration {
+    0% {
+        transform: scale(1);
+        background: #4CAF50;
+    }
+    50% {
+        transform: scale(1.2);
+        background: #FFC107;
+    }
+    100% {
+        transform: scale(1);
+        background: #4CAF50;
+    }
+}
+
+/* 变化率显示样式 */
+.rate-display {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 1px 4px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.rate-display.positive {
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.1);
+}
+
+.rate-display.negative {
+    color: #f44336;
+    background: rgba(244, 67, 54, 0.1);
+}
+
+/* 变化率动画 */
+.rate-display:not(:empty) {
+    animation: rate-pulse 2s infinite;
+}
+
+@keyframes rate-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* 信息区新布局样式 */
+.stats {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.left-stats,
+.right-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.left-stats {
+    max-width: 45%;
+}
+
+.right-stats {
+    max-width: 45%;
+}
+
+/* 等级和工作合并显示样式 */
+.stat-separator {
+    color: #666;
+    margin: 0 8px;
+    font-weight: normal;
+}
+
+/* 专注力进度条特殊样式 */
+#focus-progress {
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    transition: width 0.5s ease;
+}
+
+/* 新布局样式 */
+.stats {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.stat-item {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    position: relative; /* 防止transform影响布局 */
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    /* 移除transform: translateY(-2px); 防止下移 */
+}
+
+/* 时间显示样式 */
+.time-stat {
+    text-align: center;
+}
+
+.time-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    justify-content: center;
+}
+
+.time-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ccc;
+}
+
+.time-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.time-period {
+    font-size: 12px;
+    color: #aaa;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 等级和专注力样式 - 自动调整 */
+.level-focus-stat {
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.progress-bars .progress-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.progress-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e0e0e0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.5s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0.2) 100%);
+    opacity: 0.6;
+    animation: progressShine 3s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0%, 100% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(100%);
+    }
+}
+
+.progress-detail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #bbb;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 经验进度条颜色 - 更丰富的渐变 */
+#level-progress {
+    background: linear-gradient(90deg, 
+        #4CAF50 0%, 
+        #8BC34A 25%, 
+        #CDDC39 50%, 
+        #FFEB3B 75%, 
+        #FFC107 100%);
+    box-shadow: 0 0 12px rgba(76, 175, 80, 0.5);
+}
+
+/* 专注力进度条颜色 - 科技感蓝色 */
+#focus-progress {
+    background: linear-gradient(90deg, 
+        #2196F3 0%, 
+        #03A9F4 25%, 
+        #00BCD4 50%, 
+        #0097A7 75%, 
+        #00838F 100%);
+    box-shadow: 0 0 12px rgba(33, 150, 243, 0.5);
+}
+
+/* 心情进度条颜色 */
+#mood-progress {
+    background: linear-gradient(90deg, 
+        #f44336 0%, 
+        #ff9800 25%, 
+        #4CAF50 50%, 
+        #2196F3 75%, 
+        #9c27b0 100%);
+    box-shadow: 0 0 12px rgba(255, 107, 107, 0.5);
+}
+
+/* 进度条数值显示 - 更精致的样式 */
+#focus-display {
+    font-size: 13px;
+    font-weight: 700;
+    color: #03A9F4;
+    background: rgba(3, 169, 244, 0.15);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(3, 169, 244, 0.4);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#level-exp {
+    font-size: 13px;
+    font-weight: 700;
+    color: #4CAF50;
+    background: rgba(76, 175, 80, 0.15);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(76, 175, 80, 0.4);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 悬停效果 - 统一使用stat-item的悬停效果 */
+
+.progress-bar:hover .progress-label {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    /* 移除transform: scale(1.05); 防止布局变化 */
+    transition: all 0.2s ease;
+}
+
+.progress-bar:hover .progress-container {
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar:hover .progress-detail {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 心情样式 */
+.mood-stat {
+    text-align: center;
+}
+
+/* 金币样式 */
+.coin-stat {
+    text-align: center;
+}
+
+.coin-stat .stat-header {
+    justify-content: center;
+}
+
+/* 响应式设计 - 移动端自动调整 */
+@media (max-width: 768px) {
+    .stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: space-between;
+    }
+    
+    .stat-item {
+        flex: 1;
+        min-width: 0;
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .time-stat,
+    .coin-stat {
+        flex: 1;
+    }
+    
+    .level-focus-stat {
+        flex: 2;
+        order: 3;
+    }
+    
+    .mood-stat {
+        flex: 1;
+        order: 1;
+    }
+    
+    .progress-bars .progress-bar {
+        flex-direction: row;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .progress-label {
+        min-width: 0;
+    }
+    
+    .progress-container {
+        height: 10px;
+    }
+}
+
+/* 更小的屏幕优化 */
+@media (max-width: 480px) {
+    .stats {
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .stat-item {
+        flex: 1;
+        padding: 6px;
+    }
+    
+    .time-stat,
+    .coin-stat,
+    .mood-stat {
+        flex: 1;
+    }
+    
+    .progress-bars .progress-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+    
+    .progress-label {
+        min-width: 0;
+    }
+}
+
+/* 调整状态窗口位置 */
+.yui-status-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}

@@ -1,0 +1,181 @@
+/* 对话系统样式 */
+.dialogue-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    background-color: #2a2a2a;
+    border: 3px solid #666;
+    border-radius: 12px;
+    z-index: 100;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dialogue-content {
+    padding: 20px;
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dialogue-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.dialogue-line {
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.speaker-yui {
+    color: #ff6b9d;
+    font-weight: bold;
+}
+
+.speaker-player {
+    color: #6bc5ff;
+    font-weight: bold;
+}
+
+.dialogue-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.option-btn {
+    background-color: #444;
+    border: 2px solid #666;
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    font-size: 1em;
+}
+
+.option-btn:hover {
+    background-color: #555;
+    border-color: #777;
+    transform: translateX(5px);
+}
+
+.option-btn:active {
+    transform: translateX(0);
+}
+
+.dialogue-controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #333;
+    border-top: 2px solid #555;
+    border-radius: 0 0 10px 10px;
+}
+
+.dialogue-btn {
+    background-color: #555;
+    border: 2px solid #777;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.dialogue-btn:hover {
+    background-color: #666;
+    border-color: #888;
+}
+
+.dialogue-btn:disabled {
+    background-color: #444;
+    border-color: #555;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* 逐字显示效果 */
+.typing-effect {
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    white-space: nowrap;
+    animation: typing 0.1s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #fff }
+}
+
+/* 对话选项高亮 */
+.option-highlight {
+    background-color: #555;
+    border-color: #888;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* 对话窗口动画 */
+.dialogue-fade-in {
+    animation: dialogueFadeIn 0.3s ease-out;
+}
+
+@keyframes dialogueFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.dialogue-fade-out {
+    animation: dialogueFadeOut 0.2s ease-in;
+}
+
+@keyframes dialogueFadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+}
+
+/* 对话结束样式 */
+.dialogue-end {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #555;
+}
+
+/* 对话退出提示样式 */
+.dialogue-exit-hint {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding: 8px;
+    opacity: 0.7;
+}

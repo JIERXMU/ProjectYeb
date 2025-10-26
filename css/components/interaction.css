@@ -1,0 +1,234 @@
+/* 交互系统样式 */
+
+/* 想法窗口样式 */
+.thought-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    border: 3px solid #555;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+    max-width: 300px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+}
+
+/* 想法窗口动画 */
+.thought-fade-in {
+    animation: thoughtFadeIn 0.5s ease-out;
+}
+
+@keyframes thoughtFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* 不同心情的想法窗口颜色 */
+.thought-hate {
+    border-color: #ff4444;
+    background-color: rgba(255, 68, 68, 0.1);
+    color: #ff8888;
+}
+
+.thought-unhappy {
+    border-color: #ffaa00;
+    background-color: rgba(255, 170, 0, 0.1);
+    color: #ffcc66;
+}
+
+.thought-normal {
+    border-color: #44ff44;
+    background-color: rgba(68, 255, 68, 0.1);
+    color: #88ff88;
+}
+
+.thought-happy {
+    border-color: #4444ff;
+    background-color: rgba(68, 68, 255, 0.1);
+    color: #8888ff;
+}
+
+.thought-superHappy {
+    border-color: #aa44ff;
+    background-color: rgba(170, 68, 255, 0.1);
+    color: #cc88ff;
+}
+
+/* 状态窗口交互样式 */
+.yui-status-window {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* 鼠标悬浮动画 */
+.yui-status-window:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* 点击动画 */
+.yui-status-window:active {
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 状态Emoji悬浮动画 */
+.yui-status-window:hover .status-emoji {
+    animation: emojiHover 0.8s ease-in-out;
+}
+
+@keyframes emojiHover {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.1) rotate(-5deg);
+    }
+    50% {
+        transform: scale(1.15) rotate(5deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(-3deg);
+    }
+}
+
+/* 状态文本悬浮动画 */
+.yui-status-window:hover .status-text {
+    animation: textHover 0.6s ease-in-out;
+}
+
+@keyframes textHover {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* 点击动画效果 - 修复状态窗口动画冲突 */
+.yui-status-window.click-animation {
+    animation: statusWindowClick 0.5s ease-out;
+}
+
+@keyframes statusWindowClick {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    25% {
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+    75% {
+        transform: translate(-50%, -50%) scale(0.98);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* 状态Emoji点击动画 */
+.status-emoji.click-animation {
+    animation: emojiClick 0.6s ease-out;
+}
+
+@keyframes emojiClick {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(0.8) rotate(-10deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+    }
+    75% {
+        transform: scale(0.9) rotate(-5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* 状态文本点击动画 */
+.status-text.click-animation {
+    animation: textClick 0.5s ease-out;
+}
+
+@keyframes textClick {
+    0% {
+        transform: translateY(0);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    25% {
+        transform: translateY(-5px);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        transform: translateY(5px);
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+    75% {
+        transform: translateY(-2px);
+        background-color: rgba(255, 255, 255, 0.18);
+    }
+    100% {
+        transform: translateY(0);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+
+/* 交互提示样式 */
+.interaction-hint {
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ccc;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.yui-status-window:hover .interaction-hint {
+    opacity: 1;
+}
+
+/* 手机端交互优化 */
+@media (max-width: 768px) {
+    .thought-window {
+        font-size: 1em;
+        padding: 12px 20px;
+        max-width: 250px;
+    }
+    
+    .yui-status-window {
+        min-width: 180px;
+    }
+}
